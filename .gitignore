@@ -1,0 +1,10 @@
+# Secrets, tokens and state
+.google_oauth_state.json
+google_token.json
+token.json
+credentials.json
+google_client_secret.json
+*.env
+.env
+form_structure.json
+form_analysis*.txt
