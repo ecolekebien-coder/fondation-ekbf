@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.header');
     if (header) {
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 40) {
+            if (window.scrollY > 30) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
@@ -16,15 +16,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Mobile Menu Toggle
+    // 2. Mobile Menu Toggle with Body Scroll Lock
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navMenu = document.querySelector('.nav-menu');
+    
     if (mobileToggle && navMenu) {
         mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('open');
+            const isOpen = navMenu.classList.toggle('open');
+            document.body.classList.toggle('menu-open', isOpen);
             const icon = mobileToggle.querySelector('i');
             if (icon) {
-                if (navMenu.classList.contains('open')) {
+                if (isOpen) {
                     icon.classList.remove('fa-bars');
                     icon.classList.add('fa-xmark');
                 } else {
@@ -38,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navMenu.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('open');
+                document.body.classList.remove('menu-open');
                 const icon = mobileToggle.querySelector('i');
                 if (icon) {
                     icon.classList.remove('fa-xmark');
@@ -47,7 +50,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Countdown Timer to JSB 2027 (Target: March 15, 2027)
+    // 3. Scroll Reveal Animation via IntersectionObserver
+    const revealElements = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && revealElements.length > 0) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+        // Fallback for older browsers
+        revealElements.forEach(el => el.classList.add('active'));
+    }
+
+    // 4. Countdown Timer to JSB 2027 (Target: March 15, 2027)
     const targetDate = new Date('2027-03-15T08:30:00').getTime();
     
     function updateCountdown() {
@@ -77,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(updateCountdown, 1000);
     }
 
-    // 4. Interactive FAQ Accordion
+    // 5. Interactive FAQ Accordion
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
@@ -93,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 5. Active Navbar Link on Scroll
+    // 6. Active Navbar Link on Scroll
     const sections = document.querySelectorAll('section[id]');
     function highlightNav() {
         const scrollY = window.pageYOffset;

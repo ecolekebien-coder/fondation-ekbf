@@ -60,7 +60,7 @@
 
     <!-- Hero Section JSB 2027 -->
     <section class="jsb-hero">
-        <div class="container jsb-hero-content">
+        <div class="container jsb-hero-content reveal">
             <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px;">
                 <span class="badge badge-accent"><i class="fa-solid fa-calendar-check"></i> 3e Édition Officielle — Brazzaville</span>
                 <span class="badge badge-primary" style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7; border-color: #10b981;"><i class="fa-solid fa-handshake"></i> En Partenariat avec l'ANVRI</span>
@@ -122,7 +122,7 @@
     </section>
 
     <!-- Partenaire Officiel ANVRI - Section Banner -->
-    <section id="partenaires-officiels" style="background: #ffffff; padding: 40px 0; border-bottom: 1px solid var(--gray-border);">
+    <section id="partenaires-officiels" class="reveal" style="background: #ffffff; padding: 40px 0; border-bottom: 1px solid var(--gray-border);">
         <div class="container" style="display: flex; align-items: center; justify-content: center; gap: 30px; flex-wrap: wrap;">
             <img src="assets/images/anvri.png" alt="Logo ANVRI" style="height: 75px; width: auto; object-fit: contain;">
             <div style="max-width: 650px;">
@@ -138,7 +138,7 @@
     </section>
 
     <!-- Présentation de l'Événement -->
-    <section id="presentation" class="section-values" style="background: #f8fafc;">
+    <section id="presentation" class="section-values reveal" style="background: #f8fafc;">
         <div class="container">
             <div class="section-tag">
                 <span class="badge badge-primary">Historique & Ambition</span>
@@ -177,7 +177,7 @@
     </section>
 
     <!-- Section Le Grand Prix de l'Innovation -->
-    <section id="prix" class="section-founder" style="background: linear-gradient(135deg, #091a2b 0%, #163b5c 100%);">
+    <section id="prix" class="section-founder reveal" style="background: linear-gradient(135deg, #091a2b 0%, #163b5c 100%);">
         <div class="container">
             <div style="text-align: center; margin-bottom: 50px;">
                 <div class="badge badge-gold" style="margin-bottom: 12px;">
@@ -248,7 +248,7 @@
     </section>
 
     <!-- Section 3 Profils de Candidature -->
-    <section id="parcours" class="section-pillars" style="background: #ffffff;">
+    <section id="parcours" class="section-pillars reveal" style="background: #ffffff;">
         <div class="container">
             <div class="section-tag">
                 <span class="badge badge-accent">Formulaire Unique Intelligent</span>
@@ -317,7 +317,7 @@
     </section>
 
     <!-- Section FAQ Interactive -->
-    <section id="faq" class="section-pillars" style="background: #f8fafc;">
+    <section id="faq" class="section-pillars reveal" style="background: #f8fafc;">
         <div class="container">
             <div class="section-tag">
                 <span class="badge badge-primary">Questions Fréquentes</span>
@@ -433,6 +433,17 @@
             </div>
         </div>
     </footer>
+
+    <!-- Barre d'action flottante Mobile (Sticky CTA) -->
+    <div class="mobile-sticky-cta" aria-label="Inscription mobile">
+        <div class="cta-text">
+            <strong>JSB 2027 — Brazzaville</strong>
+            <span>Inscriptions & Candidatures</span>
+        </div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf5AGC9kLKZxLY8xlVCGyChN3g2PgjJRhmzrLMBr2_vWuns3w/viewform" target="_blank" class="btn-cta-action">
+            <i class="fa-solid fa-paper-plane"></i> S'inscrire
+        </a>
+    </div>
 
     <!-- Scripts -->
     <script src="assets/js/main.js"></script>
