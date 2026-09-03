@@ -43,6 +43,7 @@
                 <a href="#presentation" class="nav-link">L'Événement</a>
                 <a href="#partenaires-officiels" class="nav-link">Partenaire ANVRI</a>
                 <a href="#prix" class="nav-link">Prix Innovation</a>
+                <a href="#badge-simulator" class="nav-link" style="color: var(--sky-light); font-weight: 700;"><i class="fa-solid fa-id-badge"></i> Simulateur Badge</a>
                 <a href="#parcours" class="nav-link">Comment Participer ?</a>
                 <a href="#faq" class="nav-link">FAQ</a>
             </nav>
@@ -75,23 +76,29 @@
                 </div>
             </div>
 
-            <!-- Compte à rebours JSB -->
-            <div class="countdown-box">
-                <div class="count-unit">
-                    <span class="count-num" id="cd-days">--</span>
-                    <span class="count-label">Jours</span>
+            <!-- Compte à rebours JSB Pro -->
+            <div class="countdown-box-pro">
+                <div class="countdown-live-badge">
+                    <span class="live-pulse-dot"></span>
+                    <span>Inscriptions & Dépôt des Dossiers Ouverts en Direct</span>
                 </div>
-                <div class="count-unit">
-                    <span class="count-num" id="cd-hours">--</span>
-                    <span class="count-label">Heures</span>
-                </div>
-                <div class="count-unit">
-                    <span class="count-num" id="cd-minutes">--</span>
-                    <span class="count-label">Minutes</span>
-                </div>
-                <div class="count-unit">
-                    <span class="count-num" id="cd-seconds">--</span>
-                    <span class="count-label">Secondes</span>
+                <div class="countdown-digits-row">
+                    <div class="count-card">
+                        <div class="count-num-pro" id="cd-days">--</div>
+                        <div class="count-label-pro">Jours</div>
+                    </div>
+                    <div class="count-card">
+                        <div class="count-num-pro" id="cd-hours">--</div>
+                        <div class="count-label-pro">Heures</div>
+                    </div>
+                    <div class="count-card">
+                        <div class="count-num-pro" id="cd-minutes">--</div>
+                        <div class="count-label-pro">Minutes</div>
+                    </div>
+                    <div class="count-card">
+                        <div class="count-num-pro" id="cd-seconds">--</div>
+                        <div class="count-label-pro">Secondes</div>
+                    </div>
                 </div>
             </div>
 
@@ -113,6 +120,9 @@
             <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSf5AGC9kLKZxLY8xlVCGyChN3g2PgjJRhmzrLMBr2_vWuns3w/viewform" target="_blank" class="btn btn-accent btn-lg">
                     <i class="fa-solid fa-pen-to-square"></i> S'inscrire / Déposer un Projet
+                </a>
+                <a href="#badge-simulator" class="btn btn-outline btn-lg">
+                    <i class="fa-solid fa-id-badge"></i> Simuler Mon Badge
                 </a>
                 <a href="#parcours" class="btn btn-outline-white btn-lg">
                     <i class="fa-solid fa-list-check"></i> Voir les 3 Profils
@@ -241,6 +251,110 @@
 
                     <div style="background: rgba(249, 115, 22, 0.15); border: 1px solid rgba(249, 115, 22, 0.4); padding: 18px; border-radius: 8px; color: #fed7aa; font-size: 0.9rem;">
                         <i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> <strong>Présélection :</strong> Seuls les meilleurs dossiers retenus par le Comité Scientifique seront invités à soutenir leur projet oralement devant le grand jury lors de la JSB 2027.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Simulateur de Badge Officiel JSB 2027 -->
+    <section id="badge-simulator" class="section-badge-sim reveal">
+        <div class="container">
+            <div class="sim-header">
+                <div class="badge badge-accent" style="margin-bottom: 12px;">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Aperçu Interactif en Temps Réel
+                </div>
+                <h2 style="color: #ffffff; font-size: 2.4rem; margin-bottom: 16px;">
+                    Votre Badge d'Accès Officiel <span class="highlight-orange">JSB 2027</span>
+                </h2>
+                <p style="color: #94a3b8; font-size: 1.05rem; line-height: 1.6;">
+                    Sélectionnez votre profil ci-dessous et saisissez votre nom pour voir s'afficher en direct le <strong>Badge Officiel sécurisé avec QR Code</strong> qui vous sera délivré par email dès votre inscription.
+                </p>
+            </div>
+
+            <div class="sim-grid">
+                <!-- Panneau de configuration du badge -->
+                <div class="sim-controls-panel">
+                    <label class="sim-input-label">1. Choisissez Votre Profil :</label>
+                    <div class="sim-role-tabs">
+                        <button type="button" class="sim-tab-btn active tab-auditeur" data-role="auditeur">
+                            <span><i class="fa-solid fa-user" style="color: #38bdf8; margin-right: 10px;"></i> Participant (Auditeur Simple)</span>
+                            <span class="badge" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8; font-size: 0.72rem;">Conférences</span>
+                        </button>
+                        <button type="button" class="sim-tab-btn tab-candidat" data-role="candidat">
+                            <span><i class="fa-solid fa-trophy" style="color: #f97316; margin-right: 10px;"></i> Candidat au Grand Prix</span>
+                            <span class="badge" style="background: rgba(249, 115, 22, 0.2); color: #fb923c; font-size: 0.72rem;">Compétition</span>
+                        </button>
+                        <button type="button" class="sim-tab-btn tab-partenaire" data-role="partenaire">
+                            <span><i class="fa-solid fa-handshake" style="color: #10b981; margin-right: 10px;"></i> Partenaire & Sponsoring</span>
+                            <span class="badge" style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7; font-size: 0.72rem;">Accès VIP</span>
+                        </button>
+                    </div>
+
+                    <div class="sim-input-group">
+                        <label class="sim-input-label" for="sim-name-input">2. Personnalisez Votre Nom sur le Badge :</label>
+                        <input type="text" id="sim-name-input" class="sim-name-input" placeholder="Ex: Dr. Yannick Okouakoua" value="Dr. Yannick Okouakoua">
+                    </div>
+
+                    <div style="background: rgba(15, 23, 42, 0.6); border: 1px dashed rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 14px 16px; margin-bottom: 22px;">
+                        <p style="color: #cbd5e1; font-size: 0.85rem; line-height: 1.5; margin: 0;">
+                            <i class="fa-solid fa-bolt" style="color: var(--gold-light); margin-right: 6px;"></i> <strong>Délivrance Automatique :</strong> Le système officiel génère automatiquement un PDF haute résolution conforme et vous l'expédie instantanément par email.
+                        </p>
+                    </div>
+
+                    <a id="sim-cta-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSf5AGC9kLKZxLY8xlVCGyChN3g2PgjJRhmzrLMBr2_vWuns3w/viewform" target="_blank" class="btn btn-accent btn-lg" style="width: 100%; justify-content: center;">
+                        <i class="fa-solid fa-ticket"></i> S'inscrire comme Auditeur (Badge Offert)
+                    </a>
+                </div>
+
+                <!-- Prévisualisation du Badge -->
+                <div class="sim-badge-stage">
+                    <div id="sim-badge-card" class="sim-badge-card card-border-auditeur">
+                        <div class="sim-badge-lanyard"></div>
+                        
+                        <div id="sim-badge-header" class="sim-badge-header auditeur">
+                            <div id="sim-sec-pill" class="sim-sec-pill">Accréditation Officielle</div>
+                            <div class="sim-event-name">JSB 2027</div>
+                            <div class="sim-event-sub">3ᵉ Journée des Sciences Biologiques</div>
+                        </div>
+
+                        <div class="sim-badge-logos">
+                            <div style="text-align: center;">
+                                <img src="assets/images/logo.jpg" alt="Logo École Ké Bien">
+                                <div style="font-size: 7px; font-weight: 800; color: #0c2338; text-transform: uppercase; margin-top: 2px;">Fondation EKBF</div>
+                            </div>
+                            <div style="font-size: 7.5px; font-weight: 800; color: #64748b; text-align: center;">
+                                • PARTENARIAT •<br><span style="color: #d97706;">OFFICIEL</span>
+                            </div>
+                            <div style="text-align: center;">
+                                <img src="assets/images/anvri.png" alt="Logo ANVRI">
+                                <div style="font-size: 7px; font-weight: 800; color: #15803d; text-transform: uppercase; margin-top: 2px;">ANVRI CONGO</div>
+                            </div>
+                        </div>
+
+                        <div class="sim-badge-role-box">
+                            <div id="sim-role-pill" class="sim-role-pill">
+                                <div id="sim-role-title" class="sim-role-title">Participant / Auditeur</div>
+                                <div id="sim-role-desc" class="sim-role-desc">Accès Conférences, Ateliers & Posters</div>
+                            </div>
+                        </div>
+
+                        <div class="sim-badge-name-zone">
+                            <div id="sim-attendee-name" class="sim-attendee-name">Dr. Yannick Okouakoua</div>
+                            <div id="sim-attendee-affil" class="sim-attendee-affil">Université Marien Ngouabi • Brazzaville</div>
+                        </div>
+
+                        <div class="sim-badge-qr">
+                            <div class="sim-qr-box">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=JSB2027|ACCREDITATION-OFFICIELLE|OKOUAKOUA" alt="QR Code Sécurisé">
+                                <div id="sim-code-txt" class="sim-code-txt">JSB27-AUD-1484</div>
+                            </div>
+                        </div>
+
+                        <div class="sim-badge-footer">
+                            <div class="sim-footer-loc">📍 Amphithéâtre FST — Brazzaville • Mars 2027</div>
+                            <div class="sim-footer-sub">École Ké Bien Fondation &bull; Partenaire Officiel ANVRI</div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -137,4 +137,111 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     window.addEventListener('scroll', highlightNav);
+
+    // 7. Interactive Official Badge Simulator
+    const simTabs = document.querySelectorAll('.sim-tab-btn');
+    const simCard = document.getElementById('sim-badge-card');
+    const simHeader = document.getElementById('sim-badge-header');
+    const simSecPill = document.getElementById('sim-sec-pill');
+    const simRoleTitle = document.getElementById('sim-role-title');
+    const simRoleDesc = document.getElementById('sim-role-desc');
+    const simRolePill = document.getElementById('sim-role-pill');
+    const simCodeTxt = document.getElementById('sim-code-txt');
+    const simCtaBtn = document.getElementById('sim-cta-btn');
+    const simNameInput = document.getElementById('sim-name-input');
+    const simAttendeeName = document.getElementById('sim-attendee-name');
+    const simAttendeeAffil = document.getElementById('sim-attendee-affil');
+
+    const roleConfigs = {
+        auditeur: {
+            borderClass: 'card-border-auditeur',
+            headerClass: 'auditeur',
+            secText: 'Accréditation Officielle',
+            roleTitle: 'Participant / Auditeur',
+            roleDesc: 'Accès Conférences, Ateliers & Posters',
+            rolePillBorder: '#38bdf8',
+            rolePillBg: '#eff6ff',
+            roleTitleColor: '#163b5c',
+            roleDescColor: '#0284c7',
+            codePrefix: 'JSB27-AUD-1484',
+            defaultAffil: 'Université Marien Ngouabi • Brazzaville',
+            btnText: "S'inscrire comme Auditeur (Badge Offert)",
+            btnIcon: 'fa-ticket'
+        },
+        candidat: {
+            borderClass: 'card-border-candidat',
+            headerClass: 'candidat',
+            secText: 'Prix Innovation 2027',
+            roleTitle: 'Candidat au Grand Prix',
+            roleDesc: 'Compétition & Pitch devant le Jury',
+            rolePillBorder: '#f97316',
+            rolePillBg: '#fff7ed',
+            roleTitleColor: '#c2410c',
+            roleDescColor: '#ea580c',
+            codePrefix: 'JSB27-CAN-7602',
+            defaultAffil: 'Enseignant-Chercheur / Innovateur • IRA',
+            btnText: 'Déposer ma Candidature au Grand Prix',
+            btnIcon: 'fa-trophy'
+        },
+        partenaire: {
+            borderClass: 'card-border-partenaire',
+            headerClass: 'partenaire',
+            secText: 'Accès VIP Officiel',
+            roleTitle: 'Partenaire & Sponsoring',
+            roleDesc: 'Accès VIP & Espace Partenaires',
+            rolePillBorder: '#10b981',
+            rolePillBg: '#f0fdf4',
+            roleTitleColor: '#065f46',
+            roleDescColor: '#059669',
+            codePrefix: 'JSB27-SPO-1969',
+            defaultAffil: 'Institution / Entreprise Partenaire',
+            btnText: 'Devenir Partenaire Officiel JSB 2027',
+            btnIcon: 'fa-handshake'
+        }
+    };
+
+    if (simTabs.length > 0 && simCard) {
+        simTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const role = tab.getAttribute('data-role');
+                if (!roleConfigs[role]) return;
+
+                simTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const cfg = roleConfigs[role];
+                
+                // Update card border
+                simCard.className = 'sim-badge-card ' + cfg.borderClass;
+                
+                // Update header
+                simHeader.className = 'sim-badge-header ' + cfg.headerClass;
+                simSecPill.innerText = cfg.secText;
+                
+                // Update role pill
+                simRoleTitle.innerText = cfg.roleTitle;
+                simRoleDesc.innerText = cfg.roleDesc;
+                simRoleTitle.style.color = cfg.roleTitleColor;
+                simRoleDesc.style.color = cfg.roleDescColor;
+                simRolePill.style.backgroundColor = cfg.rolePillBg;
+                simRolePill.style.borderColor = cfg.rolePillBorder;
+
+                // Update code and affiliation
+                simCodeTxt.innerText = cfg.codePrefix;
+                if (simAttendeeAffil) simAttendeeAffil.innerText = cfg.defaultAffil;
+
+                // Update CTA button
+                if (simCtaBtn) {
+                    simCtaBtn.innerHTML = `<i class="fa-solid ${cfg.btnIcon}"></i> ${cfg.btnText}`;
+                }
+            });
+        });
+    }
+
+    if (simNameInput && simAttendeeName) {
+        simNameInput.addEventListener('input', (e) => {
+            const val = e.target.value.trim();
+            simAttendeeName.innerText = val ? val : 'Dr. Yannick Okouakoua';
+        });
+    }
 });
