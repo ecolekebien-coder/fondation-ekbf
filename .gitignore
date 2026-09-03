@@ -8,3 +8,8 @@ google_client_secret.json
 .env
 form_structure.json
 form_analysis*.txt
+scripts/diagnostic_output.json
+scripts/remote_script_code.js
+skills-lock.json
+.agents/
+*.log

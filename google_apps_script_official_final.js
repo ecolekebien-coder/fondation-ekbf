@@ -1,4 +1,4 @@
-﻿/**
+/**
  * =======================================================================
  * DÉCLENCHEUR OFFICIEL JSB 2027 — ÉCOLE KÉ BIEN FONDATION & ANVRI
  * Version Garantie 100% PDF & Pièce Jointe Attachée
@@ -256,7 +256,11 @@ function onFormSubmit(e) {
     var folders = DriveApp.getFoldersByName(folderName);
     var targetFolder = folders.hasNext() ? folders.next() : DriveApp.createFolder(folderName);
     var savedFile = targetFolder.createFile(badgeBlob);
-    savedFile.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+    try {
+      savedFile.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+    } catch (shareErr) {
+      Logger.log("Info partage: " + shareErr);
+    }
     pdfDriveUrl = savedFile.getUrl();
   } catch (dErr) {
     Logger.log("Erreur sauvegarde Drive: " + dErr);
@@ -338,7 +342,7 @@ function onFormSubmit(e) {
 
     // B. Onglets Spécifiques
     if (typeKey === "AUDITEUR") {
-      var audSheet = ss.getSheetByName("🎟️ Auditeurs simples");
+      var audSheet = ss.getSheetByName("👥 Auditeurs simples") || ss.getSheetByName("🎟️ Auditeurs simples") || ss.getSheetByName("Auditeurs simples");
       if (audSheet) {
         audSheet.appendRow([
           dateStr, respId, codeBadge, nom, email, tel,
@@ -346,7 +350,7 @@ function onFormSubmit(e) {
         ]);
       }
     } else if (typeKey === "CANDIDAT") {
-      var canSheet = ss.getSheetByName("🏆 Candidats Prix Innovation");
+      var canSheet = ss.getSheetByName("💡 Candidats Prix Innovation") || ss.getSheetByName("🏆 Candidats Prix Innovation") || ss.getSheetByName("Candidats Prix Innovation");
       if (canSheet) {
         canSheet.appendRow([
           dateStr, respId, codeBadge, nom, email, tel,
@@ -356,7 +360,7 @@ function onFormSubmit(e) {
         ]);
       }
     } else if (typeKey === "PARTENAIRE") {
-      var partSheet = ss.getSheetByName("🤝 Partenaires & Sponsoring");
+      var partSheet = ss.getSheetByName("🤝 Partenaires & Sponsoring") || ss.getSheetByName("Partenaires & Sponsoring");
       if (partSheet) {
         partSheet.appendRow([
           dateStr, codeBadge, organisation, secteur, nom,
